@@ -1,0 +1,56 @@
+---
+title: "High Frequency Case Data"
+vignette: >
+  %\VignetteIndexEntry{High Frequency Case Data}
+  \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+output:
+  pdf_document: default
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, Warning = FALSE, message = FALSE, echo = FALSE)
+```
+
+## High Frequency Case Data
+
+This vignette covers the traditionally collected case data during the high frequency period. This case data has four different metrics of cases over a period of 55 weeks.
+
+```{r load and show data}
+library(Covid19Wastewater)
+library(dplyr)
+library(ggplot2)
+
+data(HFGCase_data, package = "Covid19Wastewater")
+```
+
+The data is broken down by site and date. Site is where the sample was collected from a range of 10 locations. For each date and site there are four metrics of case data. These generally agree but have some slight variation. In this data a case number of less then 5 is represented with -999 for privacy.
+
+```{r catagorical variables, warning = FALSE}
+
+HFGCase_data%>%
+  filter(!is.na(ReportedCases))%>%
+  ggplot(aes(x = date), size = .2)+
+  geom_point(aes(y = ReportedCases, color = "Reported"))+
+  geom_point(aes(y = EpisodeCases, color = "Episode"))+
+  geom_point(aes(y = CollectedCases, color = "Collected"))+
+  geom_point(aes(y = ConfirmedCases, color = "Confirmed"))+
+  scale_y_log10()+
+  facet_wrap(~site, scales = "free_y")+
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  labs(y = "Number of Cases Reported", color = "Case Collection method", title = "Diffrent High Frequency Cases", x = "Date")
+```
+
+Below is the first 6 rows of the dataset
+
+```{r explain / show use case and link to other vignettes}
+head(HFGCase_data)%>%
+  head()%>%
+  knitr::kable()
+
+```
+
+
+We used this data set in some analysis [here](https://github.com/UW-Madison-DSI/Covid19-Wastewater-Analysis/tree/main/results/CoVariants)
