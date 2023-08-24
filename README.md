@@ -1,6 +1,6 @@
 <p align="center">
 	<div align="center">
-		<img src="./docs/images/covid-droplet.svg" alt="Logo" style="width:33%">
+		<img src="https://github.com/UW-Madison-DSI/Covid19Wastewater/blob/main/docs/images/covid-droplet.svg" alt="Logo" style="width:33%">
 	</div>
 </p>
 
@@ -23,9 +23,9 @@ View our [getting started guide](https://github.com/UW-Madison-DSI/Covid19Wastew
 
 ### Installation
 
-If you already have devtools installed, you can install the package with
+Install from CRAN using this command
 ```
-devtools::install_github("UW-Madison-DSI/Covid19Wastewater")
+install.packages("Covid19Wastewater")
 ```
 Otherwise, we have comprehensive instructions [here](https://github.com/UW-Madison-DSI/Covid19Wastewater/blob/main/docs/r-studio/installing-packages.md).
 
@@ -72,12 +72,15 @@ Distributed under the MIT License. See the [license](https://github.com/UW-Madis
 
 <!-- Contact -->
 ## Team
+
 Email:
 - Marlin Lee - (~~mailto:mrlee6@wisc.edu~~)
 
 - Abe Megahed - (mailto:amegahed@wisc.edu)
 
 - Kyllan Wunder - (~~mailto:kwunder@wisc.edu~~)
+
+- Steve Goldstein - (~~mailto:sgoldstein@wisc.edu~~)
 
 Repos:
 - Package Link: [https://github.com/UW-Madison-DSI/Covid19Wastewater](https://github.com/UW-Madison-DSI/Covid19Wastewater)
